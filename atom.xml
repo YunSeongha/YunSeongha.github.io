@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yunseongha.github.io/"/>
-  <updated>2019-12-15T22:34:16.819Z</updated>
+  <updated>2019-12-15T23:01:52.956Z</updated>
   <id>https://yunseongha.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shellscript - automate-clone</title>
+    <link href="https://yunseongha.github.io/2019/12/16/shellscript-automate-clone/"/>
+    <id>https://yunseongha.github.io/2019/12/16/shellscript-automate-clone/</id>
+    <published>2019-12-15T22:42:27.000Z</published>
+    <updated>2019-12-15T23:01:52.956Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>I want to perform git clone a lot. (about 50times)<br>It takes 2 hours. (Don’t you believe? I don’t still believe that)</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>To do above, It is really dumb thing<br>So, I solve it to use shellscript and text file</p><h4 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h4><ol><li>Text file (It has ID, the repo name or the subset of repo name)<ul><li>ex)<br><img src="source_posts%5Cshellscript-automate-clone%5Cprepare1.JPG" alt="screenshot"></li></ul></li><li>Shellscript file (bitbucket example)<ul><li>ex)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> input</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    repoName=$(<span class="built_in">echo</span> <span class="variable">$&#123;input&#125;</span> | awk -F<span class="string">' '</span> <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line">    repoOwnerID=$(<span class="built_in">echo</span> <span class="variable">$&#123;input&#125;</span> | awk -F<span class="string">' '</span> <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line">    git <span class="built_in">clone</span> https://&lt;myid&gt;@bitbucket.org/<span class="variable">$&#123;repoOwnerID&#125;</span>/<span class="variable">$&#123;repoName&#125;</span>.git</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure></li></ul></li></ol><h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat &lt;text file&gt; | sh &lt;bash file&gt;</span><br></pre></td></tr></table></figure><h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I want to perform git clone a lot. (about 50times)
+      
+    
+    </summary>
+    
+    
+      <category term="bash shellscript" scheme="https://yunseongha.github.io/categories/bash-shellscript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>command - create directory</title>
