@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yunseongha.github.io/"/>
-  <updated>2019-12-15T22:18:29.640Z</updated>
+  <updated>2019-12-15T22:34:16.819Z</updated>
   <id>https://yunseongha.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://yunseongha.github.io/2019/12/16/command-create-directory/"/>
     <id>https://yunseongha.github.io/2019/12/16/command-create-directory/</id>
     <published>2019-12-15T21:55:25.000Z</published>
-    <updated>2019-12-15T22:18:29.640Z</updated>
+    <updated>2019-12-15T22:34:16.819Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>I want to create folders hw1, hw2, … hw10<br>Then, Should I perform “mkdir hw#” 10 times?</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>To do above, It is really dumb thing<br>So, I solve it to use shellscript below</p><h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cur=1</span><br><span class="line">$ <span class="keyword">while</span> [ <span class="variable">$cur</span> -le 10 ]; <span class="keyword">do</span> mkdir hw<span class="variable">$&#123;cur&#125;</span>; <span class="built_in">let</span> cur=cur+1; <span class="keyword">done</span></span><br></pre></td></tr></table></figure><h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p><img src="./result.jpg" alt="Screenshot"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>I want to create folders hw1, hw2, … hw10<br>Then, Should I perform “mkdir hw#” 10 times?</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>To do above, It is really dumb thing<br>So, I solve it to use shellscript below</p><h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cur=1</span><br><span class="line">$ <span class="keyword">while</span> [ <span class="variable">$cur</span> -le 10 ]; <span class="keyword">do</span> mkdir hw<span class="variable">$&#123;cur&#125;</span>; <span class="built_in">let</span> cur=cur+1; <span class="keyword">done</span></span><br></pre></td></tr></table></figure><h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><img src="https://github.com/YunSeongha/yunseongha.github.io/blob/master/2019/12/16/command-create-directory/result.JPG?raw=true" class="" title="result">]]></content>
     
     <summary type="html">
     
