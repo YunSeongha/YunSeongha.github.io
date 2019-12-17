@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yunseongha.github.io/"/>
-  <updated>2019-12-15T23:58:22.446Z</updated>
+  <updated>2019-12-17T02:47:52.478Z</updated>
   <id>https://yunseongha.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to write git commit messages</title>
+    <link href="https://yunseongha.github.io/2019/12/17/How-to-write-git-commit-messages/"/>
+    <id>https://yunseongha.github.io/2019/12/17/How-to-write-git-commit-messages/</id>
+    <published>2019-12-17T02:38:50.000Z</published>
+    <updated>2019-12-17T02:47:52.478Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><p>I find good post about good git commit messages<br>“7 promises for writing good git commit messages” - Toast Meetup!</p><h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><a href="https://meetup.toast.com/posts/106" title="" target="_blank">좋은 git 커밋 메시지를 작성하기 위한 7가지 약속 - Toast Meetup!</a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Contents&quot;&gt;&lt;a href=&quot;#Contents&quot; class=&quot;headerlink&quot; title=&quot;Contents&quot;&gt;&lt;/a&gt;Contents&lt;/h2&gt;&lt;p&gt;I find good post about good git commit message
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://yunseongha.github.io/categories/git/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>shellscript - automate-clone</title>
