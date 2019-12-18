@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yunseongha.github.io/"/>
-  <updated>2019-12-18T13:14:48.824Z</updated>
+  <updated>2019-12-18T13:21:12.953Z</updated>
   <id>https://yunseongha.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git strategy</title>
+    <link href="https://yunseongha.github.io/2019/12/18/Git-strategy/"/>
+    <id>https://yunseongha.github.io/2019/12/18/Git-strategy/</id>
+    <published>2019-12-18T13:19:50.000Z</published>
+    <updated>2019-12-18T13:21:12.953Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><p>I find good post about git strategy.</p><h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><a href="http://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html" title="" target="_blank">우린 Git-flow를 사용하고 있어요 - 나동호</a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Contents&quot;&gt;&lt;a href=&quot;#Contents&quot; class=&quot;headerlink&quot; title=&quot;Contents&quot;&gt;&lt;/a&gt;Contents&lt;/h2&gt;&lt;p&gt;I find good post about git strategy.&lt;/p&gt;
+&lt;h2 i
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://yunseongha.github.io/categories/git/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Character compression</title>
