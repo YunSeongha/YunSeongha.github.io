@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Set up and Configure Network File System · Sungha's Blog</title><meta name="description" content="Sungha's Blog"><meta name="og:title" content="Set up and Configure Network File System"><meta name="og:type" content="website"><meta name="og:url" content="https://yunseongha.github.io/2020/01/22/Set-up-and-Configure-Network-File-System/"><meta name="og:image"><meta name="og:description" content="Sungha's Blog"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/chiangmai.css"><meta name="steem:author" content="@stunstunstun"><link rel="search" type="application/opensearchdescription+xml" href="https://yunseongha.github.io/atom.xml" title="Sungha's Blog"><meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="Sungha's Blog" type="application/atom+xml">
+</head><body class="post"><div id="fb-root"></div><div class="wrap"><header><nav class="navi-post"><a class="navi-post-back" href="javascript:history.back()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a><a class="navi-post-home" href="/"><i class="fa fa-home" aria-hidden="true"></i></a></nav></header><main class="post"><div class="post"><article class="post-block"><h1 class="post-title">Set up and Configure Network File System</h1><div class="post-info"><div class="post-info-profile"><a href="https://github.com/yunseongha" target="_blank"><img src="/image/profile.jpg"></a></div><div class="post-info-details"><div class="post-categories"></div><div class="post-date">Jan 22, 2020</div></div></div><div class="post-share"><div class="fb-like" data-href="https://yunseongha.github.io/2020/01/22/Set-up-and-Configure-Network-File-System/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false">                 </div><div class="fb-share-button" data-href="https://yunseongha.github.io/2020/01/22/Set-up-and-Configure-Network-File-System/" data-layout="button" data-size="small" data-mobile-iframe="true"></div></div><div class="post-content"><h2 id="How-to"><a href="#How-to" class="headerlink" title="How to"></a>How to</h2><h4 id="Server-Side"><a href="#Server-Side" class="headerlink" title="Server Side"></a>Server Side</h4><ol>
+<li>install or update nfs-kernel-server<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install nfs-kernel-server</span><br></pre></td></tr></table></figure></li>
+<li>configure /etc/exports file<br>add the following<figure class="highlight bash"><figcaption><span>/etc/exports</span><a href="https://linux.die.net/man/5/exports" target="_blank" rel="noopener">(manual)</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;shared folder path&gt;    &lt;ipaddr&gt;(&lt;option&gt;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>option<ul>
+<li>ro: read only</li>
+<li>sync: Reply to requests only after the changes have been committed to stable storage</li>
+<li>root_squash: Map requests from uid/gid 0 to the anonymous uid/gid. Note that this does not apply to any other uids or gids that might be equally sensitive, such as user bin or group staff.</li>
+<li>subtree_check: check subtree</li>
+</ul>
+</li>
+<li>If you need to connect with any client in your network,  you give ip address the following (your network routing address is 192.168.0.1)<ul>
+<li>192.168.0.0/24 </li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>run the following command<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo exportfs -ra</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="Client-Side"><a href="#Client-Side" class="headerlink" title="Client Side"></a>Client Side</h4><ol>
+<li>install or update nfs-common<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install nfs-common</span><br></pre></td></tr></table></figure></li>
+<li>make share folder (mount point)</li>
+<li>configure /etc/fstab file</li>
+</ol>
+<ul>
+<li>add the following<figure class="highlight bash"><figcaption><span>/etc/fstab</span><a href="https://www.thegeekdiary.com/common-nfs-mount-options-in-linux/" target="_blank" rel="noopener">(nfs options)</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;server-ip&gt;:&lt;server-shared-folder-path&gt;  &lt;client-share-folder-path&gt;  nfs  &lt;option&gt;</span><br></pre></td></tr></table></figure></li>
+<li>run the following command<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mount -a</span><br></pre></td></tr></table></figure></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2019/12/18/Git-strategy/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div><div class="copyright"><p>© 2019 - 2020 <a href="https://github.com/yunseongha" target="_blank">Sungha Yoon</a>. Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/stunstunstun/hexo-theme-chiangmai" target="_blank">hexo-theme-chiangmai</a>.</p></div></footer></div></body></html>
