@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Algorithm_Mathematics · Sungha's Blog</title><meta name="description" content="Sungha's Blog"><meta name="og:title" content="Algorithm_Mathematics"><meta name="og:type" content="website"><meta name="og:url" content="https://yunseongha.github.io/2020/10/23/Algorithm-Mathematics/"><meta name="og:image"><meta name="og:description" content="Sungha's Blog"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/chiangmai.css"><meta name="steem:author" content="@stunstunstun"><link rel="search" type="application/opensearchdescription+xml" href="https://yunseongha.github.io/atom.xml" title="Sungha's Blog"><meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="Sungha's Blog" type="application/atom+xml">
+</head><body class="post"><div id="fb-root"></div><div class="wrap"><header><nav class="navi-post"><a class="navi-post-back" href="javascript:history.back()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a><a class="navi-post-home" href="/"><i class="fa fa-home" aria-hidden="true"></i></a></nav></header><main class="post"><div class="post"><article class="post-block"><h1 class="post-title">Algorithm_Mathematics</h1><div class="post-info"><div class="post-info-profile"><a href="https://github.com/yunseongha" target="_blank"><img src="/image/profile.jpg"></a></div><div class="post-info-details"><div class="post-categories"><a href="/categories/Algorithm" target="_self"><span>ALGORITHM</span></a></div><div class="post-date">Oct 23, 2020</div></div></div><div class="post-share"><div class="fb-like" data-href="https://yunseongha.github.io/2020/10/23/Algorithm-Mathematics/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false">                 </div><div class="fb-share-button" data-href="https://yunseongha.github.io/2020/10/23/Algorithm-Mathematics/" data-layout="button" data-size="small" data-mobile-iframe="true"></div></div><div class="post-content"><h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
+<li>Modular</li>
+<li>GCD, LCM</li>
+<li>Prime Number</li>
+</ul>
+<h2 id="Modular"><a href="#Modular" class="headerlink" title="Modular"></a>Modular</h2><ul>
+<li>Modular Arithmetic<ul>
+<li>(A +|* B) mod M = ((A mod M) +|* (B mod M)) mod M</li>
+</ul>
+</li>
+<li>Note: -, /<ul>
+<li>(A - B) mod M = ((A mod M) - (B mod M) + M) mod M</li>
+<li>(A / B) mod M -&gt; modular inverse</li>
+</ul>
+</li>
+<li>Note: Range problem (int? long? long long?)</li>
+</ul>
+<h2 id="GCD-LCM"><a href="#GCD-LCM" class="headerlink" title="GCD, LCM"></a>GCD, LCM</h2><ul>
+<li>GCD between 2 numbers using Euclidean algorithm<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> gce(b, a % b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(b != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> r = a % b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>LCM can be gotten by GCD<ul>
+<li>LCM = GCD * (a/GCD) * (b/GCD) = (a*b)/GCD</li>
+</ul>
+</li>
+<li>Examples<ul>
+<li><a href="https://www.acmicpc.net/problem/9613" target="_blank" rel="noopener">https://www.acmicpc.net/problem/9613</a><ul>
+<li>Note: Range problem</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Prime-Number"><a href="#Prime-Number" class="headerlink" title="Prime Number"></a>Prime Number</h2><ul>
+<li>To check if N is prime or not, devide N by 2 ~ sqrt(N)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i*i&lt;=n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n % i==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>To find prime numbers between 1 ~ N, use sieve of eratosthenes<ul>
+<li>How to?<ul>
+<li>Write 2 ~ N</li>
+<li>Find least number between undeleted numbers </li>
+<li>That number is prime number</li>
+<li>Delete multiples of that number<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//init false</span></span><br><span class="line"><span class="keyword">bool</span> check[N+<span class="number">1</span>];</span><br><span class="line"><span class="comment">// vector&lt;bool&gt; check(N+1, false);</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i*i&lt;=n; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(check[i] == <span class="literal">false</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i*<span class="number">2</span>; j&lt;=n; j+=i)&#123;</span><br><span class="line">            check[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;N+<span class="number">1</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(check[i]==<span class="literal">false</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Examples<ul>
+<li><a href="https://www.acmicpc.net/problem/1929" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1929</a></li>
+<li><a href="https://www.acmicpc.net/problem/6588" target="_blank" rel="noopener">https://www.acmicpc.net/problem/6588</a></li>
+</ul>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2020/01/22/Set-up-and-Configure-Network-File-System/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div><div class="copyright"><p>© 2019 - 2020 <a href="https://github.com/yunseongha" target="_blank">Sungha Yoon</a>. Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/stunstunstun/hexo-theme-chiangmai" target="_blank">hexo-theme-chiangmai</a>.</p></div></footer></div></body></html>
