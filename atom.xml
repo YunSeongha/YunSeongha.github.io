@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yunseongha.github.io/"/>
-  <updated>2020-10-23T09:10:05.749Z</updated>
+  <updated>2020-11-05T14:07:07.660Z</updated>
   <id>https://yunseongha.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Brute Force</title>
+    <link href="https://yunseongha.github.io/2020/11/05/Brute-Force/"/>
+    <id>https://yunseongha.github.io/2020/11/05/Brute-Force/</id>
+    <published>2020-11-05T08:18:53.000Z</published>
+    <updated>2020-11-05T14:07:07.660Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul><li>Just do all cases</li><li>Nested For loop</li><li>Permutation</li><li>Recursive call</li><li>Bit-mask</li></ul><h2 id="Just-do-all-cases"><a href="#Just-do-all-cases" class="headerlink" title="Just do all cases"></a>Just do all cases</h2><ul><li>Use for loop<ul><li>complexity: O(n^x)</li></ul></li><li>Example<ul><li><a href="https://www.acmicpc.net/problem/2309" target="_blank" rel="noopener">https://www.acmicpc.net/problem/2309</a><ul><li>Solution<ul><li>9C7 = 9C2</li><li>The sum of 9’s height - The sub of 2’s height = 100</li></ul></li></ul></li><li><a href="https://www.acmicpc.net/problem/1476" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1476</a><ul><li>Solution<ul><li>modular arithmetic</li></ul></li></ul></li><li><a href="https://www.acmicpc.net/problem/14500" target="_blank" rel="noopener">https://www.acmicpc.net/problem/14500</a><ul><li>Solution<ul><li>Cases 19</li><li>Check all cases using ‘if’</li></ul></li></ul></li></ul></li></ul><h2 id="Nested-For-loop"><a href="#Nested-For-loop" class="headerlink" title="Nested For loop"></a>Nested For loop</h2><ul><li>Select subset of N<ul><li>It is almost not used because Using the recursive call or bit-mask is more simple and easier.</li></ul></li><li>Example<ul><li><a href="https://www.acmicpc.net/problem/9095" target="_blank" rel="noopener">https://www.acmicpc.net/problem/9095</a><ul><li>10 Nested For loop (BAD)</li><li>Solution<ul><li>Find rules</li><li>hint: fibonacci</li></ul></li></ul></li></ul></li></ul><h2 id="Permutation"><a href="#Permutation" class="headerlink" title="Permutation"></a>Permutation</h2><ul><li>Sequence from 1 to N<ul><li>Not in the same number</li></ul></li><li>The permutation with size N is N!</li><li>Next permutation<ul><li>In ‘algorithm’ in cpp STL, next_permutation and prev_permutation is already built.</li><li>How to find?<ol><li>Find the largest i that satisfies A[i-1] &lt; A[i]</li><li>Find the largest j that satisfies j&gt;=i AND A[j] &gt; A[i-1]</li><li>Swap A[i-1] and A[j]</li><li>Reverse the permutation from A[i]</li></ol></li><li>Example<ul><li><a href="https://www.acmicpc.net/problem/10972" target="_blank" rel="noopener">https://www.acmicpc.net/problem/10972</a><ul><li>Solution<ul><li>Implement ‘How to find?’</li></ul></li></ul></li></ul></li></ul></li><li>Prev permutation<ul><li>Opposite of Next permutation</li><li>Example<ul><li><a href="https://www.acmicpc.net/problem/10973" target="_blank" rel="noopener">https://www.acmicpc.net/problem/10973</a><ul><li>Solution<ul><li>Implement opposite of Next permutation ‘How to find?’</li><li>hint:<ul><li>Find the largest i that satisfies A[i-1] &gt; A[i]</li><li>Find the largest j that satisfies j&gt;=i AND A[j] &lt; A[i-1]</li></ul></li></ul></li></ul></li></ul></li></ul></li><li>All permutation<ul><li>Find all permutation</li><li>Example<ul><li><a href="https://www.acmicpc.net/problem/10974" target="_blank" rel="noopener">https://www.acmicpc.net/problem/10974</a><ul><li>Solution<ul><li>Use next_permutation in cpp STL<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">next_permutation(v.begin(), v.end());</span><br></pre></td></tr></table></figure></li></ul></li></ul></li><li><a href="https://www.acmicpc.net/problem/10819" target="_blank" rel="noopener">https://www.acmicpc.net/problem/10819</a><ul><li>Solution<ul><li>Use next_permutation and calculate the given expression</li><li>Before do next_permutation(), MUST sort the given array<ul><li>After sorting, all permutation can be got.</li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Contents&quot;&gt;&lt;a href=&quot;#Contents&quot; class=&quot;headerlink&quot; title=&quot;Contents&quot;&gt;&lt;/a&gt;Contents&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Just do all cases&lt;/li&gt;
+&lt;li&gt;Nested For lo
+      
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://yunseongha.github.io/categories/Algorithm/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Algorithm_Mathematics</title>
