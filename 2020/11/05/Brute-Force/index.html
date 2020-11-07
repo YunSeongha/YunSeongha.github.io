@@ -100,6 +100,7 @@
 </li>
 </ul>
 </li>
+<li>NOTE: next_permutation(), prev_permutation() can be used if N &lt;= 10</li>
 </ul>
 </li>
 <li>All permutation<ul>
@@ -160,16 +161,139 @@
 <li>Example<ul>
 <li><a href="https://www.acmicpc.net/problem/6603" target="_blank" rel="noopener">https://www.acmicpc.net/problem/6603</a><ul>
 <li>Solution<ul>
-<li>Select 6 numbers in K numbers</li>
+<li>Select 6 numbers in K numbers -&gt; KC6</li>
 <li>hint: make the number vector and the other vector(selected) composed of 0, 1<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; number; <span class="comment">// store K numbers</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; selected; <span class="comment">// store k-6 zeros and 6 ones, because we select 6 numbers.</span></span><br></pre></td></tr></table></figure></li>
 <li>hint: perform prev or next_permutation(selected.begin(), selected.end()) and if the element of selected is 1, print out the element at that index in the number vector</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="https://www.acmicpc.net/problem/14888" target="_blank" rel="noopener">https://www.acmicpc.net/problem/14888</a><ul>
+<li>Solution<ul>
+<li>Make the operator vector and perform next_permutation<ul>
+<li>e.g., the number of operators: [2,1,1,1] -&gt; vector: [0,0,1,2,3]</li>
+</ul>
+</li>
+<li>Switch / Case<ul>
+<li>0 -&gt; + | 1 -&gt; - | 2 -&gt; * | 3 -&gt; /</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NOTE: Range problem (Use ‘auto’)</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2020/10/23/Algorithm-Mathematics/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div><div class="copyright"><p>© 2019 - 2020 <a href="https://github.com/yunseongha" target="_blank">Sungha Yoon</a>. Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/stunstunstun/hexo-theme-chiangmai" target="_blank">hexo-theme-chiangmai</a>.</p></div></footer></div></body></html>
+</li>
+</ul>
+<h2 id="Recursive-call"><a href="#Recursive-call" class="headerlink" title="Recursive call"></a>Recursive call</h2><ul>
+<li>Example<ul>
+<li><a href="https://www.acmicpc.net/problem/9095" target="_blank" rel="noopener">https://www.acmicpc.net/problem/9095</a><ul>
+<li>It is already solved, but try again using recursive call.</li>
+<li>Solution<ul>
+<li>Using recursive call, add sum value to goal value<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">go(<span class="keyword">int</span> sum, <span class="keyword">int</span> goal)&#123;</span><br><span class="line">  <span class="keyword">if</span>(sum &gt; goal) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// fail to goal</span></span><br><span class="line">  <span class="keyword">if</span>(sum == goal) <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// success</span></span><br><span class="line">  <span class="keyword">int</span> now = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// only use 1,2,3</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">3</span>; i++)&#123;</span><br><span class="line">    now += go(sum+i, goal);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main...</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, go(<span class="number">0</span>, n));</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/1759" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1759</a><ul>
+<li>Solution<ul>
+<li>1 &lt;= vowel(모음) &amp;&amp; 2 &lt;= consonant(자음)</li>
+<li>sorting</li>
+<li>make a function to call recursively<ul>
+<li>goal: target length / words: available words(chars) / current: current password created / idx: index in words<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="built_in">string</span>&amp; pwd)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> co = <span class="number">0</span>; </span><br><span class="line">  <span class="keyword">int</span> vo = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">char</span> c : pwd) &#123;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'a'</span> || c == <span class="string">'e'</span> || c == <span class="string">'i'</span> || c == <span class="string">'o'</span> || c == <span class="string">'u'</span>) &#123;</span><br><span class="line">      vo += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      co += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> co &gt;= <span class="number">2</span> &amp;&amp; vo &gt;= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">(<span class="keyword">int</span> goal, <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &amp;words, <span class="built_in">string</span> current, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (goal == current.length()) &#123;</span><br><span class="line">    <span class="keyword">if</span> (check(current)) &#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; current &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (idx &gt;= words.size()) &#123;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">  &#125;</span><br><span class="line">  go(goal, words, current + words[idx], idx + <span class="number">1</span>);</span><br><span class="line">  go(goal, words, current, idx + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main...</span></span><br><span class="line">sort(words.begin(), words.end());</span><br><span class="line">go(l, words, answer, <span class="number">0</span>); <span class="comment">// l: target length</span></span><br><span class="line">        </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/6603" target="_blank" rel="noopener">https://www.acmicpc.net/problem/6603</a><ul>
+<li>It is already solved, but try again using recursive call.</li>
+<li>Solution<ul>
+<li>Pass params<ul>
+<li>num: available number</li>
+<li>answer: to store all combination of num</li>
+<li>idx: index in num</li>
+</ul>
+</li>
+<li>Conditions<ol>
+<li>answer.size() == 6 // success</li>
+<li>idx == num.size() // index control</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/1182" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1182</a><ul>
+<li>Solution<ul>
+<li>Pass params<ul>
+<li>s: target sum</li>
+<li>elems: the given numbers</li>
+<li>current : current sum</li>
+<li>idx: index in elems</li>
+<li>cnt: answer</li>
+</ul>
+</li>
+<li>Conditions<ol>
+<li>idx == elems.size() &amp;&amp; current == target // The reaseon that ‘idx == elems.size()’ is added is that all combinations must be considered.</li>
+<li>idx == elems.size() return ; // If all combinations are considered and ‘current != target’, it is fail.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/14501" target="_blank" rel="noopener">https://www.acmicpc.net/problem/14501</a><ul>
+<li>Solution<ul>
+<li>Pass params<ul>
+<li>ts: time sum</li>
+<li>cs: cost sum</li>
+<li>idx: index in tps(the given time and pay)</li>
+</ul>
+</li>
+<li>Conditions<ol>
+<li>ts &lt;= n // success, ts can be less than n (not equal)</li>
+<li>idx &gt;= tps.size() // index control</li>
+</ol>
+</li>
+<li>Recursive<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max_cost(ts + tps[idx].first, cs + tps[idx].second, idx + tps[idx].first); <span class="comment">// time + working time, index + working time (not + 1, we should find the correct index)</span></span><br><span class="line">max_cost(ts + <span class="number">1</span>, cs, idx + <span class="number">1</span>); <span class="comment">// time +1, index +1</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/14888" target="_blank" rel="noopener">https://www.acmicpc.net/problem/14888</a><ul>
+<li>It is already solved, but try again using recursive call.</li>
+<li>Solution<ul>
+<li>Pass params<ul>
+<li>plus, subtr, multi, divide: the number of each OP</li>
+<li>res: the result calculated</li>
+<li>idx: index in nums (the given numbers)</li>
+</ul>
+</li>
+<li>Conditions<ol>
+<li>idx == nums.size() // check max value and min value</li>
+<li>each OP &gt; 0 // When each OP more than 1, the result can be calculated</li>
+</ol>
+</li>
+<li>Recursive<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(plus &gt; <span class="number">0</span>)</span><br><span class="line">  calc(plus - <span class="number">1</span>, subtr, multi, divide, res + nums[idx], idx + <span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(subtr &gt; <span class="number">0</span>)</span><br><span class="line">  calc(plus, subtr - <span class="number">1</span>, multi, divide, res - nums[idx], idx + <span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(multi &gt; <span class="number">0</span>)</span><br><span class="line">  calc(plus, subtr, multi - <span class="number">1</span>, divide, res * nums[idx], idx + <span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(divide &gt; <span class="number">0</span>)</span><br><span class="line">  calc(plus, subtr, multi, divide - <span class="number">1</span>, res / nums[idx], idx + <span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+<li>NOTE: Range problem (I used long long int)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/15658" target="_blank" rel="noopener">https://www.acmicpc.net/problem/15658</a><ul>
+<li>Extended problem 14888</li>
+<li>Solution<ul>
+<li>It is the same solution on problem 14888, because above solution already has constraint about index. (Condition 1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Bit-mask"><a href="#Bit-mask" class="headerlink" title="Bit-mask"></a>Bit-mask</h2></div></article></div></main><footer><div class="paginator"><a class="prev" href="/2020/10/23/Algorithm-Mathematics/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div><div class="copyright"><p>© 2019 - 2020 <a href="https://github.com/yunseongha" target="_blank">Sungha Yoon</a>. Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/stunstunstun/hexo-theme-chiangmai" target="_blank">hexo-theme-chiangmai</a>.</p></div></footer></div></body></html>
