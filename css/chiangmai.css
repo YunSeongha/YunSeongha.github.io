@@ -419,6 +419,11 @@ nav.navi-post .navi-post-home {
 }
 .post-info .post-info-details .post-date {
   position: absolute;
+  bottom: 25px;
+  color: #7f8c8d;
+}
+.post-info .post-info-details .post-updated {
+  position: absolute;
   bottom: 5px;
   color: #7f8c8d;
 }
