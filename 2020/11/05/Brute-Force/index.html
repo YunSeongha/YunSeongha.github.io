@@ -123,6 +123,50 @@
 </li>
 </ul>
 </li>
+<li><a href="https://www.acmicpc.net/problem/10971" target="_blank" rel="noopener">https://www.acmicpc.net/problem/10971</a><ul>
+<li>Solution<ul>
+<li>Use next_permutation to find the number of cases whether you can go or not</li>
+<li>In next_permutation, Check whether you can go or not</li>
+<li>hint<ul>
+<li>cost(1-&gt;2-&gt;3-&gt;4) == cost(2-&gt;3-&gt;4-&gt;1) == cost(3-&gt;4-&gt;-&gt;1-&gt;2) == cost(4-&gt;1-&gt;2-&gt;3)</li>
+<li>So, the start point can be fixed.</li>
+<li>Complexity: <ul>
+<li>All cases: O(N*N!)</li>
+<li>Fixed the start point: O(N!) because (N-1)*(N-1)!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Combination<ul>
+<li>In cpp, the combination can be implemented by next_permutation and prev_permutation.<ul>
+<li>Q. What is the result to perform prev_permutation([1,1,1,1,0])?<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> e : v)&#123;</span><br><span class="line">    <span class="comment">// cstdio</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>, e);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125; <span class="keyword">while</span>(prev_permutation(v.begin(), v.end()));</span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+<ul>
+<li>A. <img src="https://github.com/YunSeongha/yunseongha.github.io/blob/master/2020/11/07/Brute-Force/com_result.JPG?raw=true" class="" title="result"><ul>
+<li>Combination !!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Example<ul>
+<li><a href="https://www.acmicpc.net/problem/6603" target="_blank" rel="noopener">https://www.acmicpc.net/problem/6603</a><ul>
+<li>Solution<ul>
+<li>Select 6 numbers in K numbers</li>
+<li>hint: make the number vector and the other vector(selected) composed of 0, 1<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; number; <span class="comment">// store K numbers</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; selected; <span class="comment">// store k-6 zeros and 6 ones, because we select 6 numbers.</span></span><br></pre></td></tr></table></figure></li>
+<li>hint: perform prev or next_permutation(selected.begin(), selected.end()) and if the element of selected is 1, print out the element at that index in the number vector</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
