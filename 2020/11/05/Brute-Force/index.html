@@ -239,8 +239,8 @@
 </ul>
 </li>
 <li>Conditions<ol>
-<li>idx == elems.size() &amp;&amp; current == target // The reaseon that ‘idx == elems.size()’ is added is that all combinations must be considered.</li>
-<li>idx == elems.size() return ; // If all combinations are considered and ‘current != target’, it is fail.</li>
+<li>idx == elems.size() &amp;&amp; current == target<br>// The reaseon that ‘idx == elems.size()’ is added is that all combinations must be considered.</li>
+<li>idx == elems.size() return ;<br>// If all combinations are considered and ‘current != target’, it is fail.</li>
 </ol>
 </li>
 </ul>
@@ -296,4 +296,213 @@
 </ul>
 </li>
 </ul>
-<h2 id="Bit-mask"><a href="#Bit-mask" class="headerlink" title="Bit-mask"></a>Bit-mask</h2></div></article></div></main><footer><div class="paginator"><a class="prev" href="/2020/10/23/Algorithm-Mathematics/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div><div class="copyright"><p>© 2019 - 2020 <a href="https://github.com/yunseongha" target="_blank">Sungha Yoon</a>. Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/stunstunstun/hexo-theme-chiangmai" target="_blank">hexo-theme-chiangmai</a>.</p></div></footer></div></body></html>
+<h2 id="Bit-mask"><a href="#Bit-mask" class="headerlink" title="Bit-mask"></a>Bit-mask</h2><ul>
+<li><p>Subset is expressed using bitwise operation.</p>
+</li>
+<li><p>&amp;(AND), |(OR), ~(NOT), ^(XOR)</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">~A</th>
+<th align="center">A&amp;B</th>
+<th align="center">A|B</th>
+<th align="center">A^B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>In case of bitwise operation of A and B, perform the operation one by one from the last digit.</p>
+<ul>
+<li><p>e.g., A = 27, B = 83</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">0011011(2)</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">1010011(2)</td>
+</tr>
+<tr>
+<td align="center">A&amp;B</td>
+<td align="center">0010011(2)</td>
+</tr>
+<tr>
+<td align="center">A|B</td>
+<td align="center">1011011(2)</td>
+</tr>
+<tr>
+<td align="center">A^B</td>
+<td align="center">1001000(2)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>In case of NOT operation, the result is changed according to type.</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">01010011(2)</td>
+</tr>
+<tr>
+<td align="center">~A</td>
+<td align="center">10101100(2) [8-bit type]</td>
+</tr>
+<tr>
+<td align="center">~A</td>
+<td align="center">11111111 11111111 11111111 10101100(2) [32-bit type]</td>
+</tr>
+</tbody></table>
+<ul>
+<li>The return value is different depending on unsigned or signed.</li>
+</ul>
+</li>
+<li><p>Shift left(&lt;&lt;), Shift right(&gt;&gt;)</p>
+<ul>
+<li>A &lt;&lt; B (Shift A to the left by B)<ul>
+<li>A * 2^B</li>
+<li>e.g.,<br>1 &lt;&lt; 0 = 1<br>1 &lt;&lt; 1 = 10(2) = 2<br>1 &lt;&lt; 2 = 100(2) = 4<br>1 &lt;&lt; 3 = 1000(2) = 8<br>3 &lt;&lt; 3 = 11000(2) = 24<br>5 &lt;&lt; 10 = 1010000000000(2) = 5120</li>
+</ul>
+</li>
+<li>A &gt;&gt; B (Shift A to the right by B)<ul>
+<li>A / 2^B<br>(A+B)/2 = (A+B) &gt;&gt; 1</li>
+<li>e.g.,<br>1 &gt;&gt; 0 = 1<br>1 &gt;&gt; 1 = 0(2)<br>10 &gt;&gt; 1 = 0101(2) = 5<br>10 &gt;&gt; 2 = 0010(2) = 2<br>10 &gt;&gt; 3 = 0001(2) = 1<br>30 &gt;&gt; 1 = 01111(2) = 15<br>1024 &gt;&gt; 10 = 1(2) = 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>0 ~ N-1 (Not N)</p>
+</li>
+<li><p>Bitwise set can be expressed by integer</p>
+<ul>
+<li>{1,3,4,5,9} = 2^1 + 2^3 + 2^4 + 2^5 + 2^9 = 570 = 1000111010(2)</li>
+<li>Check whether n is included in bitwise set<ul>
+<li>If 2^n is in bitwise set of N, Check whether N &amp; (2^n) = 2^n<ul>
+<li>N &amp; (2^n) = N &amp; (1 &lt;&lt; n)</li>
+</ul>
+</li>
+<li>e.g., {1,3,4,5,9} = 2^1 + 2^3 + 2^4 + 2^5 + 2^9 = 570<br>570 &amp; 2^0 = 570 &amp; (1&lt;&lt;0) = 0 (X)<br>570 &amp; 2^1 = 570 &amp; (1&lt;&lt;1) = 2 (O)<br>570 &amp; 2^2 = 570 &amp; (1&lt;&lt;2) = 0 (X)</li>
+</ul>
+</li>
+<li>Add n in bitwise set<ul>
+<li>If you want to add n in bitwise set of N, use OR operation<ul>
+<li>N | (2^n) = N | (1 &lt;&lt; n)</li>
+<li>Condition: n is not in N</li>
+</ul>
+</li>
+<li>e.g., {1,3,4,5,9} = 2^1 + 2^3 + 2^4 + 2^5 + 2^9 = 570<br>570 | 2^1 = 570 | (1 &lt;&lt; 1) = 570<br>570 | 2^2 = 570 | (1 &lt;&lt; 2) = 574<br>570 | 2^3 = 570 | (1 &lt;&lt; 3) = 570</li>
+</ul>
+</li>
+<li>Remove n in bitwise set<ul>
+<li>If you want to remove n in bitwise set, use AND, NOT operation<ul>
+<li>N &amp; ~(2^n) = N &amp; ~(1 &lt;&lt; n)</li>
+</ul>
+</li>
+<li>e.g., {1,3,4,5,9} = 2^1 + 2^3 + 2^4 + 2^5 + 2^9 = 570<br>570 &amp; ~2^1 = 570 &amp; ~(1 &lt;&lt; 1) = 568<br>570 &amp; ~2^2 = 570 &amp; ~(1 &lt;&lt; 2) = 570</li>
+</ul>
+</li>
+<li>Toggle n in bitwise set (0 -&gt; 1, 1 -&gt; 0)<ul>
+<li>If you want to change n in bitwise set, use XOR operation<ul>
+<li>N ^ (2^n) = N ^ (1 &lt;&lt; n)</li>
+</ul>
+</li>
+<li>e.g., {1,3,4,5,9} = 2^1 + 2^3 + 2^4 + 2^5 + 2^9 = 570<br>570 ^ 2^1 = 570 ^ (1 &lt;&lt; 1) = 568<br>570 ^ 2^2 = 570 ^ (1 &lt;&lt; 2) = 574</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The entire set(0 ~ N-1): (1 &lt;&lt; N) - 1</p>
+</li>
+<li><p>Zero-set: 0</p>
+</li>
+<li><p>Operation priority</p>
+<ul>
+<li>Q. 1 &lt;&lt; N-1 : (1 &lt;&lt; N) - 1? 1 &lt;&lt; (N - 1)<ul>
+<li>A. 1 &lt;&lt; (N - 1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Why use bit-mask?</p>
+<ul>
+<li>Set can be expressed by the index of array.</li>
+</ul>
+</li>
+<li><p>Bitset</p>
+<ul>
+<li>In cpp, int: 32-bit, long long: 64-bit<ul>
+<li>If more than 64-bit, can’t be represented with integer</li>
+<li>Then how?<ul>
+<li>cpp bitset</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Example</p>
+<ul>
+<li><a href="https://www.acmicpc.net/problem/11723" target="_blank" rel="noopener">https://www.acmicpc.net/problem/11723</a><ul>
+<li>Bitwise practice</li>
+<li>Solution<ul>
+<li>hint: add the following line in your code.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">ios_base::sync_with_stdio(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.acmicpc.net/problem/1182" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1182</a><ul>
+<li>It is already solved, but try again using bitset.</li>
+<li>Solution<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// Find all cases 1 ~ N-1: (1 &lt;&lt; N) -1)</span></span><br><span class="line"> <span class="comment">// start 1: 0 is zero-set and sum is 0. If the case finds sum 0, answer return 1. So, remove zero-set</span></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i++) &#123;</span><br><span class="line">   <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">     <span class="comment">// Check whether j(j-bit) is included in current bitset</span></span><br><span class="line">     <span class="keyword">if</span> (i &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">       sum += elems[j];</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> (sum == s) &#123;</span><br><span class="line">     answer += <span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2020/10/23/Algorithm-Mathematics/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div><div class="copyright"><p>© 2019 - 2020 <a href="https://github.com/yunseongha" target="_blank">Sungha Yoon</a>. Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/stunstunstun/hexo-theme-chiangmai" target="_blank">hexo-theme-chiangmai</a>.</p></div></footer></div></body></html>
